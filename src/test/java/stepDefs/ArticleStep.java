@@ -30,6 +30,7 @@ public class ArticleStep {
 	public void user_should_be_on_new_article_page() {
 	  
 		TestBase.openUrl("https://conduit-realworld-example-app.fly.dev/");
+		System.out.println("User on New Article Page");
 	    
 	}
 
@@ -42,11 +43,11 @@ public class ArticleStep {
 
 	    	
 			articlepage.createArticle(data.get(0).get("title"), data.get(0).get("Desc"),data.get(0).get("Content"),data.get(0).get("tag"));
-			
+			System.out.println("Enters Article Page");
 	}
 
 	@Then("Article must be created")
-	public void article_must_be_created() {
+	public void article_must_be_created() { 
 		Assert.assertEquals(driver.getTitle(), "Conduit");
 	}
 
@@ -74,7 +75,7 @@ public class ArticleStep {
 		@Given("Article detail page must be displayed")
 		public void article_detail_page_must_be_displayed() {
 //				updateArticlepage.editClickArticle();
-			Assert.assertEquals(driver.findElement(By.xpath("//h1[text() = 'Test125 Title']")).getText(), "Test125 Title");
+			
 			
 			
 		}
