@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -45,7 +46,7 @@ public class ArticleStep {
 
 	@Then("Article must be created")
 	public void article_must_be_created() {
-
+		Assert.assertEquals(driver.getTitle(), "Conduit");
 	}
 
 	//Global Feed Page
@@ -56,17 +57,18 @@ public class ArticleStep {
 
 	@When("enters select an article {string}")
 	public void enters_select_an_article(String string) {
-	    
+	    articlepage.viewArticle();
 	}
 
 	@Then("Article details page must be created")
 	public void article_details_page_must_be_created() {
+	    Assert.assertEquals(driver.findElement(By.xpath("//h1[text() = 'Test125 Title']")).getText(), "Test125 Title");
 	    
 	}
 	
 	
 	
-//Update OR Edit Article
+//Update OR Edit Articles
 
 		@Given("Article detail page must be displayed")
 		public void article_detail_page_must_be_displayed() {
@@ -85,18 +87,18 @@ public class ArticleStep {
 
 		@Then("Article details page must be updated")
 		public void article_details_page_must_be_updated() {
-		   
+			Assert.assertEquals(driver.findElement(By.xpath("//h1[text() = 'New Selenium Test']")).getText(), "New Selenium Test");
 		}
 	
-	@When("User Delete article")
-	public void user_delete_article() {
-		
-		articlepage.deleteArticle();
-		
-	}
-
-	@Then("Article must be deleted")
-	public void article_must_be_deleted() {
-	   
-	}
-}
+//	@When("User Delete article")
+//	public void user_delete_article() {
+//		
+//		articlepage.deleteArticle();
+//		
+//	}
+//
+//	@Then("Article must be deleted")
+//	public void article_must_be_deleted() {
+//	   
+//	}
+  }

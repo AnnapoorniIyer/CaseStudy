@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestBase;
@@ -45,6 +46,7 @@ public class LoginStep {
 		
 		@Then("User should be on Home Page")
 		public void user_should_be_on_home_page() {
+			Assert.assertEquals(driver.getTitle(),"Conduit");
 		    
 		}
 	}

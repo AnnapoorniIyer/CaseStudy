@@ -38,8 +38,8 @@ public class ArticlePage {
     @FindBy(xpath = "//button[@class='nav-link '][1]") 
     WebElement  clickGlobal;
     
-    @FindBy(xpath = "//h1[text() = 'Test Title']") 
-    WebElement  viewarticle;
+    @FindBy(xpath = "//h1[text() = 'Test125 Title']") 
+    WebElement  viewarticleClick;
     
     @FindBy(xpath = "//a[@class='nav-link' and text()=' Edit Article']") 
     WebElement  editArticleBtn;
@@ -54,11 +54,7 @@ public class ArticlePage {
 		PageFactory.initElements(driver,this);
 	}
 	
-//	public void clickArticle() {
-//		newArticleLink.click();
-//		
-//	}
-//	
+
 		
 	public void createArticle(String title, String description, String content,String tag) throws InterruptedException {
 		
@@ -76,9 +72,17 @@ public class ArticlePage {
 	public void globalFeed() {
 			
 			clickGlobal.click();
-			viewarticle.click();
+			
 			
 		}
+	public void viewArticle() {
+		
+		viewarticleClick.click();
+		
+		
+	}
+	
+	
 	
 	public void updateArticle(String newTitle,String newDesc, String newContent) {
 			
@@ -105,27 +109,27 @@ public class ArticlePage {
 	
 	
 	
-//	public void editClickArticle() {
-//		
-//		editArticleBtn.click();
-//		titleField.clear();
-//		descField.clear();
-//		bodyField.clear();
-//		tagField.clear();
-//		
-//	}
-//	
-//	public void editArticle(String title, String description, String content,String tag) {
-//		
-//		
-//		titleField.sendKeys(title);
-//		descField.sendKeys(description);
-//		bodyField.sendKeys(content);
-//		tagField.sendKeys(tag);
-//		publishBtn.click();
-//	
-//		
-//	}
+	public void editClickArticle() {
+		
+		editArticleBtn.click();
+		titleField.clear();
+		descField.clear();
+		bodyField.clear();
+		tagField.clear();
+		
+	}
+	
+	public void editArticle(String title, String description, String content,String tag) {
+		
+		
+		titleField.sendKeys(title);
+		descField.sendKeys(description);
+		bodyField.sendKeys(content);
+		tagField.sendKeys(tag);
+		publishBtn.click();
+	
+		
+	}
 	
 
 }
