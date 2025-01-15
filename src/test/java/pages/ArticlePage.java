@@ -51,6 +51,7 @@ public class ArticlePage {
    
 	
 	public ArticlePage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -101,7 +102,6 @@ public class ArticlePage {
 		
 		deleteBtn.click();
 		Alert confirm=driver.switchTo().alert();
-//		System.out.println(confirm.getText());
 		confirm.accept();
 		
 	}

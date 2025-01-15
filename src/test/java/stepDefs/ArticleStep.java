@@ -22,7 +22,8 @@ public class ArticleStep {
 	ArticlePage articlepage;
 	
 	public ArticleStep() {
-		  articlepage=new ArticlePage(driver);
+		this.driver = TestBase.getDriver(); 
+	    articlepage = new ArticlePage(driver);
 	}
 	
 	@Given("User should be on New Article Page")
@@ -73,6 +74,7 @@ public class ArticleStep {
 		@Given("Article detail page must be displayed")
 		public void article_detail_page_must_be_displayed() {
 //				updateArticlepage.editClickArticle();
+			Assert.assertEquals(driver.findElement(By.xpath("//h1[text() = 'Test125 Title']")).getText(), "Test125 Title");
 			
 			
 		}
@@ -90,15 +92,15 @@ public class ArticleStep {
 			Assert.assertEquals(driver.findElement(By.xpath("//h1[text() = 'New Selenium Test']")).getText(), "New Selenium Test");
 		}
 	
-//	@When("User Delete article")
-//	public void user_delete_article() {
-//		
-//		articlepage.deleteArticle();
-//		
-//	}
-//
-//	@Then("Article must be deleted")
-//	public void article_must_be_deleted() {
-//	   
-//	}
+	@When("User Delete article")
+	public void user_delete_article() {
+		
+		articlepage.deleteArticle();
+		
+	}
+
+	@Then("Article must be deleted")
+	public void article_must_be_deleted() {
+		Assert.assertEquals(driver.getTitle(), "Conduit");
+	}
   }

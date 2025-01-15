@@ -25,10 +25,10 @@ When User update article details
 | New Selenium Test  | New Test Description | New Test Content |
 Then Article details page must be updated
 
-#Scenario: Delete an Article
-#Given Article detail page must be displayed
-#When User Delete article
-#Then Article must be deleted
+Scenario: Delete an Article
+Given Article detail page must be displayed
+When User Delete article
+Then Article must be deleted
 
 
 
